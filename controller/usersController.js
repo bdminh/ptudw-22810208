@@ -20,7 +20,7 @@ controller.placeorders = async (req, res) => {
     let address = await models.Address.findByPk(addressId);
     if (!address) {
         address = await models.Address.create({
-            firstName: req.body.firstname,
+            firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             mobile: req.body.mobile,
@@ -34,7 +34,6 @@ controller.placeorders = async (req, res) => {
         });
     }
     let cart = req.session.cart;
-    cart.paymentMethod = req.body.payment;
     cart.shippingAdress = `${address.firstName} ${address.lastName}, Email: ${address.email}
                                                                    , Mobile: ${address.mobile}
                                                                    , Address: ${address.address}, ${address.city}, ${address.country}, ${address.state}, ${address.zipCode}`;
