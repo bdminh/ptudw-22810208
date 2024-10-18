@@ -15,7 +15,7 @@ helper.createStarList = (stars) => {
         i++;
     }
     for (; i < 5; i++) {
-        str += '<i class="fa fa-star-0"></i>';
+        str += '<i class="fa fa-star-o"></i>';
     }
     str+='</div>';
     return str;
